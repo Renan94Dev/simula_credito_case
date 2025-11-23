@@ -1,5 +1,7 @@
 import { FooterContent } from "@/ui/footer";
-import { LoanDetailCard } from "@/ui/loanDetailCard";
+import { CustomLoanCard } from "@/ui/loanDetailCard/customLoanCard";
+import { LoanDetailCard } from "@/ui/loanDetailCard/newLoanCard";
+import { WithdrawCard } from "@/ui/loanDetailCard/withdrawCard";
 
 export default function Dashboard() {
 	return (
@@ -10,13 +12,13 @@ export default function Dashboard() {
 				</h1>
 
 				<span className="text-gray-400 *:cursor-pointer">
-					<small>Dashboard &gt; </small>
-					<small className="text-primary">Simulação de crédito</small>
+					<small>Dashboard </small>
+					<small className="text-primary">&gt; Simulação de crédito</small>
 				</span>
 			</div>
 
 			<div className="grid grid-rows-[0.93fr_auto] gap-2 h-full">
-				<div className=" bg-white rounded-md w-full h-full shadow-md p-4">
+				<div className="flex flex-col gap-4 bg-white rounded-md w-full h-full shadow-md p-4">
 					<div className="flex gap-4">
 						{BankCard.map((bank) => (
 							<LoanDetailCard
@@ -26,6 +28,19 @@ export default function Dashboard() {
 								value={bank.value}
 								aa={bank.aa}
 								am={bank.am}
+							/>
+						))}
+					</div>
+
+					<div className="flex gap-4">
+						<CustomLoanCard />
+
+						{CardLoans.map((loan) => (
+							<WithdrawCard
+								key={Math.random() * 100}
+								available={loan.available}
+								name={loan.name}
+								value={loan.value}
 							/>
 						))}
 					</div>
@@ -58,5 +73,18 @@ const BankCard = [
 		value: 17500,
 		aa: 14.6,
 		am: 1.84,
+	},
+];
+
+const CardLoans = [
+	{
+		name: "Saque cartão benefício",
+		value: 3267,
+		available: true,
+	},
+	{
+		name: "Cartão consignado",
+		value: 16500,
+		available: false,
 	},
 ];

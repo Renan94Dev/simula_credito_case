@@ -23,7 +23,10 @@ export const LoanDetailCard = ({
 					<span className="text-xl font-medium">Banco {name}</span>
 
 					<span className="text-base text-gray-600">
-						Valor liberado: R$ {new Intl.NumberFormat("pt-BR").format(value)}
+						Valor liberado:{" "}
+						<span className="font-medium text-primary">
+							R$ {new Intl.NumberFormat("pt-BR").format(value)}
+						</span>
 					</span>
 
 					<span className="flex gap-2 text-gray-500">
