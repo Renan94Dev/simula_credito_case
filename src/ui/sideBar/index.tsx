@@ -66,8 +66,8 @@ const SideBarFooterContent = [
 	},
 	{
 		label: "Sair",
-		href: "/dashboard/sair",
+		href: "/",
 		svg: <LogOut />,
-		active: false,
+		active: true,
 	},
 ] as const;
