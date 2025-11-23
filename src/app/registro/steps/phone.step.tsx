@@ -1,6 +1,7 @@
 "use client";
 
 import { InputWithLabel } from "@/ui/inputWithLabel";
+import { useHookFormMask } from "use-mask-input";
 import type { PhoneSchemaValuesType, StepFormType } from "../register.types";
 
 export const StepPhone = ({
@@ -11,6 +12,8 @@ export const StepPhone = ({
 		formState: { errors },
 	} = hookForm;
 
+	const registerWithMask = useHookFormMask(register);
+
 	return (
 		<form className="space-y-4">
 			<div className="space-y-0.5">
@@ -18,7 +21,7 @@ export const StepPhone = ({
 					type="text"
 					label="Informe seu telefone"
 					placeholder="Telefone"
-					{...register("phone")}
+					{...registerWithMask("phone", ["(99) 99999-9999"])}
 				/>
 				{errors?.phone && (
 					<p className="text-xs text-red-500 pl-0.5">{errors.phone.message}</p>

@@ -2,6 +2,7 @@
 
 import { InputWithLabel } from "@/ui/inputWithLabel";
 import { Activity } from "react";
+import { useHookFormMask } from "use-mask-input";
 import type { PersonalSchemaValuesType, StepFormType } from "../register.types";
 
 export const StepPersonal = ({
@@ -12,7 +13,7 @@ export const StepPersonal = ({
 		formState: { errors },
 	} = hookForm;
 
-	console.log(errors);
+	const registerWithMask = useHookFormMask(register);
 
 	return (
 		<form className="space-y-4">
@@ -21,7 +22,9 @@ export const StepPersonal = ({
 					type="text"
 					label="Informe seu CPF"
 					placeholder="CPF"
-					{...register("cpf")}
+					{...registerWithMask("cpf", ["999.999.999-99"], {
+						showMaskOnFocus: false,
+					})}
 				/>
 
 				<Activity mode={errors?.cpf ? "visible" : "hidden"}>

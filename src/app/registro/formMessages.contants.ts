@@ -5,3 +5,7 @@ export const CPF_MESSAGES = {
 export const EMAIL_MESSAGES = {
 	EMAIL_FORMAT_INCORRECT: "Digite um email válido",
 };
+
+export const PHONE_MESSAGES = {
+	PHONE_FORMAT_INCORRECT: "Digite um telefone válido",
+};
