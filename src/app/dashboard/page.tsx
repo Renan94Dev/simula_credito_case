@@ -1,6 +1,5 @@
 import { FooterContent } from "@/ui/footer";
-import { ArrowRight } from "lucide-react";
-import Image from "next/image";
+import { LoanDetailCard } from "@/ui/loanDetailCard";
 
 export default function Dashboard() {
 	return (
@@ -20,43 +19,14 @@ export default function Dashboard() {
 				<div className=" bg-white rounded-md w-full h-full shadow-md p-4">
 					<div className="flex gap-4">
 						{BankCard.map((bank) => (
-							<div
+							<LoanDetailCard
 								key={Math.random() * 100}
-								className="flex-1 border border-gray-200 rounded-md p-4 space-y-2 shadow-md cursor-pointer group"
-							>
-								<div className="flex items-center justify-between">
-									<div className="flex flex-col gap-2">
-										<span className="text-xl font-medium">
-											Banco {bank.name}
-										</span>
-
-										<span className="text-base text-gray-600">
-											Valor liberado: R${" "}
-											{new Intl.NumberFormat("pt-BR").format(bank.value)}
-										</span>
-
-										<span className="flex gap-2 text-gray-500">
-											<small>a.m: {bank.am}%</small>
-											<small>|</small>
-											<small>a.a: {bank.aa}%</small>
-										</span>
-									</div>
-
-									<Image
-										width={80}
-										height={80}
-										alt={bank.name}
-										src={bank.image}
-									/>
-								</div>
-
-								<div className="flex items-center gap-1 text-primary group-hover:underline">
-									<span>Ver detalhes</span>
-									<span>
-										<ArrowRight size={18} />
-									</span>
-								</div>
-							</div>
+								name={bank.name}
+								image={bank.image}
+								value={bank.value}
+								aa={bank.aa}
+								am={bank.am}
+							/>
 						))}
 					</div>
 				</div>
