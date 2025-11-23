@@ -29,7 +29,7 @@ export const LoanDetailCard = ({
 						</span>
 					</span>
 
-					<span className="flex gap-2 text-gray-500">
+					<span className="flex gap-1 text-gray-500">
 						<small>a.m: {am}%</small>
 						<small>|</small>
 						<small>a.a: {aa}%</small>
