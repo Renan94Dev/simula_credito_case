@@ -2,6 +2,7 @@ import { FooterContent } from "@/ui/footer";
 import { CustomLoanCard } from "@/ui/loanDetailCard/customLoanCard";
 import { LoanDetailCard } from "@/ui/loanDetailCard/newLoanCard";
 import { WithdrawCard } from "@/ui/loanDetailCard/withdrawCard";
+import { Slash } from "lucide-react";
 
 export default function Dashboard() {
 	return (
@@ -11,10 +12,11 @@ export default function Dashboard() {
 					Nova simulação de crédito
 				</h1>
 
-				<span className="text-gray-400 *:cursor-pointer">
+				<div className="flex items-center gap-1 text-gray-400 *:cursor-pointer">
 					<small>Dashboard </small>
-					<small className="text-primary">&gt; Simulação de crédito</small>
-				</span>
+					<Slash size={14} className="text-primary" />
+					<small className="text-primary">Simulação de crédito</small>
+				</div>
 			</div>
 
 			<div className="grid grid-rows-[0.93fr_auto] gap-2 h-full">
