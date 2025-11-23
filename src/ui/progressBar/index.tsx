@@ -6,8 +6,11 @@ type Props = ComponentProps<"div"> & {
 
 const ProgressBar = ({ progress }: Props) => {
 	return (
-		<div className="w-full h-1 bg-background rounded-xs" role="progressbar">
-			<div className="h-full bg-primary" style={{ width: `${progress}%` }} />
+		<div className="w-full h-1 bg-background rounded-xs">
+			<div
+				className="h-full bg-primary transition-all duration-100"
+				style={{ width: `${progress}%` }}
+			/>
 		</div>
 	);
 };

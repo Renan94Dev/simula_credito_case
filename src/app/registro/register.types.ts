@@ -4,6 +4,7 @@ import type z from "zod";
 import type {
 	emailSchema,
 	personalSchema,
+	phoneSchema,
 	registerDataSchema,
 } from "./register.model";
 
@@ -11,7 +12,9 @@ export type PersonalSchemaValuesType = z.infer<typeof personalSchema>;
 
 export type EmailSchemaValuesType = z.infer<typeof emailSchema>;
 
-type StepType<T extends FieldValues> = {
+export type PhoneSchemaValuesType = z.infer<typeof phoneSchema>;
+
+export type StepType<T extends FieldValues> = {
 	form: UseFormReturn<T>;
 	Component: LazyExoticComponent<ComponentType<StepFormType<T>>>;
 	render: () => JSX.Element;
@@ -20,6 +23,7 @@ type StepType<T extends FieldValues> = {
 export type StepConfigType = [
 	StepType<PersonalSchemaValuesType>,
 	StepType<EmailSchemaValuesType>,
+	StepType<PhoneSchemaValuesType>,
 ];
 
 export type StepFormType<T extends FieldValues> = {

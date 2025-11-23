@@ -1,8 +1,9 @@
 "use client";
-import { Activity, Suspense } from "react";
+
 import { Box } from "@/ui/box";
 import { Button } from "@/ui/primitives/button";
 import { ProgressBar } from "@/ui/progressBar";
+import { Activity, Suspense } from "react";
 import { useRegisterViewModel } from "./register.viewModel";
 
 export const RegisterView = () => {
@@ -16,7 +17,7 @@ export const RegisterView = () => {
 
 	return (
 		<Box className="space-y-4">
-			<ProgressBar progress={progress} />
+			<ProgressBar key={"progressBar"} progress={progress} />
 
 			<h2>Vamos começar</h2>
 
@@ -26,12 +27,22 @@ export const RegisterView = () => {
 
 			<div className="flex items-center gap-4">
 				<Activity mode={stepIndex > 0 ? "visible" : "hidden"}>
-					<Button type="button" variant="outline" className="mt-4" onClick={onPrev}>
+					<Button
+						type="button"
+						variant="outline"
+						className="mt-4"
+						onClick={onPrev}
+					>
 						Voltar
 					</Button>
 				</Activity>
 
-				<Button type="button" variant="default" className="mt-4" onClick={onNext}>
+				<Button
+					type="button"
+					variant="default"
+					className="mt-4"
+					onClick={onNext}
+				>
 					Avançar
 				</Button>
 			</div>
