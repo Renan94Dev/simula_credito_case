@@ -2,12 +2,20 @@ import { ArrowRight, CreditCard } from "lucide-react";
 import { Box } from "../box";
 
 type WithdrawCardProps = {
-	available: boolean;
-	name: string;
-	value: number;
+	data: {
+		available: boolean;
+		name: string;
+		value: number;
+	};
+	promise: Promise<unknown>;
 };
 
-export const WithdrawCard = ({ available, name, value }: WithdrawCardProps) => {
+export const WithdrawCard = async ({
+	data: { available, name, value },
+	promise,
+}: WithdrawCardProps) => {
+	await promise;
+
 	return (
 		<Box
 			key={Math.random() * 100}

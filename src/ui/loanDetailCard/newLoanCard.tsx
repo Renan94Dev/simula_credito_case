@@ -3,16 +3,17 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { Box } from "../box";
 
-type LoanDetailCardProps = (typeof BankCard)[0];
+type LoanDetailCardProps = {
+	data: (typeof BankCard)[0];
+	promise: Promise<unknown>;
+};
 
-export const LoanDetailCard = ({
-	name,
-	image,
-	value,
-	installments,
-	aa,
-	am,
+export const LoanDetailCard = async ({
+	data: { name, image, value, installments, aa, am },
+	promise,
 }: LoanDetailCardProps) => {
+	await promise;
+
 	return (
 		<Box className="flex-1 border border-gray-200 rounded-md space-y-2 cursor-pointer group">
 			<div className="flex items-center justify-between">

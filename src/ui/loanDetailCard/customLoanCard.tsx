@@ -1,7 +1,15 @@
 import { ArrowRight, ClipboardPenLine } from "lucide-react";
 import { Box } from "../box";
 
-export const CustomLoanCard = () => {
+type CustomLoanCardProps = Promise<unknown>;
+
+export const CustomLoanCard = async ({
+	promise,
+}: {
+	promise: CustomLoanCardProps;
+}) => {
+	await promise;
+
 	return (
 		<Box
 			key={Math.random() * 100}

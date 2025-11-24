@@ -1,9 +1,12 @@
+import { createPromiseWithRandomTimeout } from "@/shared/utils/utils";
 import { Box } from "@/ui/box";
 import { FooterContent } from "@/ui/footer";
 import { CustomLoanCard } from "@/ui/loanDetailCard/customLoanCard";
 import { LoanDetailCard } from "@/ui/loanDetailCard/newLoanCard";
 import { WithdrawCard } from "@/ui/loanDetailCard/withdrawCard";
+import { Skeleton } from "@/ui/skeleton";
 import { Slash } from "lucide-react";
+import { Suspense } from "react";
 
 export default function Dashboard() {
 	return (
@@ -25,20 +28,38 @@ export default function Dashboard() {
 					<Box className="flex flex-col gap-4 h-full rounded-md">
 						<div className="flex gap-4">
 							{BankCard.map((bank) => (
-								<LoanDetailCard key={Math.random() * 100} {...bank} />
+								<Suspense
+									key={Math.random() * 100}
+									fallback={<Skeleton className="flex-1 w-full h-full" />}
+								>
+									<LoanDetailCard
+										data={bank}
+										promise={createPromiseWithRandomTimeout()}
+									/>
+								</Suspense>
 							))}
 						</div>
 
 						<div className="flex gap-4">
-							<CustomLoanCard />
+							<Suspense
+								key={Math.random() * 100}
+								fallback={<Skeleton className="flex-1 w-full h-full" />}
+							>
+								<CustomLoanCard
+									promise={createPromiseWithRandomTimeout(1000)}
+								/>
+							</Suspense>
 
 							{CardLoans.map((loan) => (
-								<WithdrawCard
+								<Suspense
 									key={Math.random() * 100}
-									available={loan.available}
-									name={loan.name}
-									value={loan.value}
-								/>
+									fallback={<Skeleton className="flex-1 w-full h-full" />}
+								>
+									<WithdrawCard
+										data={loan}
+										promise={createPromiseWithRandomTimeout()}
+									/>
+								</Suspense>
 							))}
 						</div>
 					</Box>
