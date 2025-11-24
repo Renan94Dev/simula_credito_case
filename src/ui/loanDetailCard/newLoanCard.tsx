@@ -1,23 +1,20 @@
+import type { BankCard } from "@/app/dashboard/page";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { Box } from "../box";
 
-type LoanDetailCardProps = {
-	name: string;
-	image: string;
-	value: number;
-	aa: number;
-	am: number;
-};
+type LoanDetailCardProps = (typeof BankCard)[0];
 
 export const LoanDetailCard = ({
 	name,
 	image,
 	value,
+	installments,
 	aa,
 	am,
 }: LoanDetailCardProps) => {
 	return (
-		<div className="flex-1 border border-gray-200 rounded-md p-4 space-y-2 shadow-md cursor-pointer group">
+		<Box className="flex-1 border border-gray-200 rounded-md space-y-2 cursor-pointer group">
 			<div className="flex items-center justify-between">
 				<div className="flex flex-col gap-2">
 					<span className="text-xl font-medium">Banco {name}</span>
@@ -26,6 +23,13 @@ export const LoanDetailCard = ({
 						Valor liberado:{" "}
 						<span className="font-medium text-primary">
 							R$ {new Intl.NumberFormat("pt-BR").format(value)}
+						</span>
+					</span>
+
+					<span className="text-sm text-gray-600">
+						Em: {installments.quantity}x de{" "}
+						<span>
+							R$ {new Intl.NumberFormat("pt-BR").format(installments.value)}
 						</span>
 					</span>
 
@@ -45,6 +49,6 @@ export const LoanDetailCard = ({
 					<ArrowRight size={18} />
 				</span>
 			</div>
-		</div>
+		</Box>
 	);
 };

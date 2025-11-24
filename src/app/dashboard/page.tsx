@@ -1,3 +1,4 @@
+import { Box } from "@/ui/box";
 import { FooterContent } from "@/ui/footer";
 import { CustomLoanCard } from "@/ui/loanDetailCard/customLoanCard";
 import { LoanDetailCard } from "@/ui/loanDetailCard/newLoanCard";
@@ -6,59 +7,58 @@ import { Slash } from "lucide-react";
 
 export default function Dashboard() {
 	return (
-		<main className="p-4 space-y-2">
-			<div>
-				<h1 className="text-2xl font-medium text-primary">
-					Nova simulação de crédito
-				</h1>
+		<Box asChild>
+			<main className="bg-transparent space-y-2">
+				<div>
+					<h1 className="text-2xl font-medium text-primary">
+						Nova simulação de crédito
+					</h1>
 
-				<div className="flex items-center gap-1 text-gray-400 *:cursor-pointer">
-					<small>Dashboard </small>
-					<Slash size={14} className="text-primary" />
-					<small className="text-primary">Simulação de crédito</small>
-				</div>
-			</div>
-
-			<div className="grid grid-rows-[0.93fr_auto] gap-2 h-full">
-				<div className="flex flex-col gap-4 bg-white rounded-md w-full h-full shadow-md p-4">
-					<div className="flex gap-4">
-						{BankCard.map((bank) => (
-							<LoanDetailCard
-								key={Math.random() * 100}
-								name={bank.name}
-								image={bank.image}
-								value={bank.value}
-								aa={bank.aa}
-								am={bank.am}
-							/>
-						))}
-					</div>
-
-					<div className="flex gap-4">
-						<CustomLoanCard />
-
-						{CardLoans.map((loan) => (
-							<WithdrawCard
-								key={Math.random() * 100}
-								available={loan.available}
-								name={loan.name}
-								value={loan.value}
-							/>
-						))}
+					<div className="flex items-center gap-1 text-gray-400 *:cursor-pointer">
+						<small>Dashboard </small>
+						<Slash size={14} className="text-primary" />
+						<small className="text-primary">Simulação de crédito</small>
 					</div>
 				</div>
 
-				<FooterContent />
-			</div>
-		</main>
+				<div className="grid grid-rows-[0.93fr_auto] gap-2 h-full">
+					<Box className="flex flex-col gap-4 h-full rounded-md">
+						<div className="flex gap-4">
+							{BankCard.map((bank) => (
+								<LoanDetailCard key={Math.random() * 100} {...bank} />
+							))}
+						</div>
+
+						<div className="flex gap-4">
+							<CustomLoanCard />
+
+							{CardLoans.map((loan) => (
+								<WithdrawCard
+									key={Math.random() * 100}
+									available={loan.available}
+									name={loan.name}
+									value={loan.value}
+								/>
+							))}
+						</div>
+					</Box>
+
+					<FooterContent />
+				</div>
+			</main>
+		</Box>
 	);
 }
 
-const BankCard = [
+export const BankCard = [
 	{
 		name: "Inter",
 		image: "/banks_logos/inter.png",
 		value: 14000,
+		installments: {
+			value: 480.22,
+			quantity: 84,
+		},
 		aa: 12,
 		am: 1.4,
 	},
@@ -66,6 +66,10 @@ const BankCard = [
 		name: "Santander",
 		image: "/banks_logos/santander.png",
 		value: 16500,
+		installments: {
+			value: 518.17,
+			quantity: 96,
+		},
 		aa: 14,
 		am: 1.56,
 	},
@@ -73,6 +77,10 @@ const BankCard = [
 		name: "Itaú",
 		image: "/banks_logos/itau.png",
 		value: 17500,
+		installments: {
+			value: 819.37,
+			quantity: 48,
+		},
 		aa: 14.6,
 		am: 1.84,
 	},

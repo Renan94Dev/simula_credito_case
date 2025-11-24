@@ -1,10 +1,11 @@
 import { ArrowRight, ClipboardPenLine } from "lucide-react";
+import { Box } from "../box";
 
 export const CustomLoanCard = () => {
 	return (
-		<div
+		<Box
 			key={Math.random() * 100}
-			className="flex-1 border border-gray-200 rounded-md p-4 space-y-2 shadow-md group cursor-pointer"
+			className="flex-1 border border-gray-200 rounded-md space-y-2 group cursor-pointer"
 		>
 			<div className="grid grid-rows-[0.5fr_0.9fr] gap-2">
 				<span className="text-xl font-medium flex items-center gap-2">
@@ -19,6 +20,6 @@ export const CustomLoanCard = () => {
 					<ArrowRight size={18} />
 				</span>
 			</div>
-		</div>
+		</Box>
 	);
 };

@@ -3,42 +3,45 @@
 import { CircleQuestionMark, House, Landmark, LogOut } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Box } from "../box";
 
 export const SideBar = () => {
 	const pathname = usePathname();
 
 	return (
-		<aside className="w-64 p-4 shadow-md bg-white">
-			<div className="grid grid-rows-[1fr_auto] h-full overflow-hidden">
-				<div className="overflow-y-auto space-y-2">
-					{SideBarContent.map((item) => (
-						<Link
-							className="flex items-center gap-2 p-2 rounded-md text-zinc-400 font-medium transition-colors duration-100 hover:bg-primary/40 hover:text-primary data-[active=true]:text-primary"
-							href={item.active ? item.href : "#"}
-							key={item.label}
-							data-active={pathname === item.href}
-						>
-							{item.svg}
-							{item.label}
-						</Link>
-					))}
-				</div>
+		<Box asChild>
+			<aside className="min-w-64">
+				<div className="grid grid-rows-[1fr_auto] h-full overflow-hidden">
+					<div className="overflow-y-auto space-y-2">
+						{SideBarContent.map((item) => (
+							<Link
+								className="flex items-center gap-2 p-2 rounded-md text-zinc-400 font-medium transition-colors duration-100 hover:bg-primary/40 hover:text-primary data-[active=true]:text-primary"
+								href={item.active ? item.href : "#"}
+								key={item.label}
+								data-active={pathname === item.href}
+							>
+								{item.svg}
+								{item.label}
+							</Link>
+						))}
+					</div>
 
-				<div className="space-y-2">
-					{SideBarFooterContent.map((item) => (
-						<Link
-							className="flex items-center gap-2 p-2 rounded-md text-zinc-400 font-medium transition-colors duration-100 hover:bg-primary/40 hover:text-primary data-[active=true]:text-primary"
-							href={item.active ? item.href : "#"}
-							key={item.label}
-							data-active={pathname === item.href}
-						>
-							{item.svg}
-							{item.label}
-						</Link>
-					))}
+					<div className="space-y-2">
+						{SideBarFooterContent.map((item) => (
+							<Link
+								className="flex items-center gap-2 p-2 rounded-md text-zinc-400 font-medium transition-colors duration-100 hover:bg-primary/40 hover:text-primary data-[active=true]:text-primary"
+								href={item.active ? item.href : "#"}
+								key={item.label}
+								data-active={pathname === item.href}
+							>
+								{item.svg}
+								{item.label}
+							</Link>
+						))}
+					</div>
 				</div>
-			</div>
-		</aside>
+			</aside>
+		</Box>
 	);
 };
 

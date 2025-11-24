@@ -31,7 +31,7 @@ const StepPhoneLazy = lazy(() =>
 );
 
 export const useRegisterViewModel = () => {
-	const { get, isFinished, stepIndex, data, nextStep, prevStep, updateData } =
+	const { isFinished, stepIndex, data, nextStep, prevStep, updateData } =
 		useRegisterStore();
 
 	const steps: StepConfigType = [
@@ -67,8 +67,6 @@ export const useRegisterViewModel = () => {
 		updateData(values);
 
 		if (isFinished()) {
-			console.log(get());
-
 			redirect("/dashboard");
 		}
 

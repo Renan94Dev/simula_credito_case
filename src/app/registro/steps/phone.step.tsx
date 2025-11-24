@@ -15,7 +15,7 @@ export const StepPhone = ({
 	const registerWithMask = useHookFormMask(register);
 
 	return (
-		<form className="space-y-4">
+		<form className="space-y-6">
 			<div className="space-y-0.5">
 				<InputWithLabel
 					type="text"

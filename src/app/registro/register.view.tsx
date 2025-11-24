@@ -16,7 +16,7 @@ export const RegisterView = () => {
 	} = useRegisterViewModel();
 
 	return (
-		<Box className="space-y-4">
+		<Box className="space-y-6 max-w-[380px] bg-foreground rounded-md">
 			<ProgressBar key={"progressBar"} progress={progress} />
 
 			<h2>Vamos começar</h2>
@@ -25,7 +25,7 @@ export const RegisterView = () => {
 				{CurrentForm.render()}
 			</Suspense>
 
-			<div className="flex items-center gap-4">
+			<div className="flex items-center gap-6">
 				<Activity mode={stepIndex > 0 ? "visible" : "hidden"}>
 					<Button
 						type="button"

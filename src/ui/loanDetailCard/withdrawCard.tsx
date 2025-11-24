@@ -1,4 +1,5 @@
 import { ArrowRight, CreditCard } from "lucide-react";
+import { Box } from "../box";
 
 type WithdrawCardProps = {
 	available: boolean;
@@ -8,10 +9,10 @@ type WithdrawCardProps = {
 
 export const WithdrawCard = ({ available, name, value }: WithdrawCardProps) => {
 	return (
-		<div
+		<Box
 			key={Math.random() * 100}
 			data-available={available}
-			className="flex-1 border border-gray-200 rounded-md p-4 space-y-2 shadow-md group data-[available=true]:cursor-pointer"
+			className="flex-1 border border-gray-200 rounded-md space-y-2 group data-[available=true]:cursor-pointer"
 		>
 			{available ? (
 				<>
@@ -48,6 +49,6 @@ export const WithdrawCard = ({ available, name, value }: WithdrawCardProps) => {
 					</div>
 				</div>
 			)}
-		</div>
+		</Box>
 	);
 };
