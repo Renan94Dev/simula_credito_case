@@ -8,6 +8,8 @@ import { Skeleton } from "@/ui/skeleton";
 import { Slash } from "lucide-react";
 import { Suspense } from "react";
 
+export const dynamic = "force-dynamic";
+
 export default function Dashboard() {
 	return (
 		<Box asChild>
