@@ -26,11 +26,11 @@ export default function Dashboard() {
 
 				<div className="grid grid-rows-[0.93fr_auto] gap-2 h-full">
 					<Box className="flex flex-col gap-4 h-full rounded-md">
-						<div className="flex gap-4">
+						<div className="grid grid-cols-3 gap-4">
 							{BankCard.map((bank) => (
 								<Suspense
 									key={Math.random() * 100}
-									fallback={<Skeleton className="flex-1 w-full h-full" />}
+									fallback={<Skeleton className="h-[198px]" />}
 								>
 									<LoanDetailCard
 										data={bank}
@@ -40,10 +40,10 @@ export default function Dashboard() {
 							))}
 						</div>
 
-						<div className="flex gap-4">
+						<div className="grid grid-cols-3 gap-4">
 							<Suspense
 								key={Math.random() * 100}
-								fallback={<Skeleton className="flex-1 w-full h-full" />}
+								fallback={<Skeleton className="h-[144px]" />}
 							>
 								<CustomLoanCard
 									promise={createPromiseWithRandomTimeout(1000)}
@@ -53,7 +53,7 @@ export default function Dashboard() {
 							{CardLoans.map((loan) => (
 								<Suspense
 									key={Math.random() * 100}
-									fallback={<Skeleton className="flex-1 w-full h-full" />}
+									fallback={<Skeleton className="h-[144px]" />}
 								>
 									<WithdrawCard
 										data={loan}
