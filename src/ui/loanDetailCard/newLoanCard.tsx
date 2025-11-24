@@ -1,6 +1,9 @@
+"use client";
+
 import type { BankCard } from "@/app/dashboard/page";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { use } from "react";
 import { Box } from "../box";
 
 type LoanDetailCardProps = {
@@ -8,11 +11,11 @@ type LoanDetailCardProps = {
 	promise: Promise<unknown>;
 };
 
-export const LoanDetailCard = async ({
+export const LoanDetailCard = ({
 	data: { name, image, value, installments, aa, am },
 	promise,
 }: LoanDetailCardProps) => {
-	await promise;
+	use(promise);
 
 	return (
 		<Box className="flex-1 border border-gray-200 rounded-md space-y-2 cursor-pointer group">

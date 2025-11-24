@@ -1,14 +1,17 @@
+"use client";
+
 import { ArrowRight, ClipboardPenLine } from "lucide-react";
+import { use } from "react";
 import { Box } from "../box";
 
 type CustomLoanCardProps = Promise<unknown>;
 
-export const CustomLoanCard = async ({
+export const CustomLoanCard = ({
 	promise,
 }: {
 	promise: CustomLoanCardProps;
 }) => {
-	await promise;
+	use(promise);
 
 	return (
 		<Box
