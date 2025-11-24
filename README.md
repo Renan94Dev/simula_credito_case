@@ -1,3 +1,7 @@
+![Criação1](./criacao_1.jpg)
+![Criação2](./criacao_2.jpg)
+![Dashboard](./dashboard.jpg)
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
