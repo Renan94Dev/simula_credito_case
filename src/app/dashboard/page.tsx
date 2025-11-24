@@ -6,7 +6,10 @@ import { LoanDetailCard } from "@/ui/loanDetailCard/newLoanCard";
 import { WithdrawCard } from "@/ui/loanDetailCard/withdrawCard";
 import { Skeleton } from "@/ui/skeleton";
 import { Slash } from "lucide-react";
+import { cacheLife } from "next/cache";
 import { Suspense } from "react";
+
+cacheLife("seconds");
 
 export default function Dashboard() {
 	return (
