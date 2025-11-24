@@ -1,4 +1,4 @@
-import { createPromiseWithRandomTimeout } from "@/shared/utils/utils";
+import { createPromiseWithRandomTimeout } from "@/shared/utils/promises.utils";
 import { Box } from "@/ui/box";
 import { FooterContent } from "@/ui/footer";
 import { CustomLoanCard } from "@/ui/loanDetailCard/customLoanCard";
@@ -6,10 +6,7 @@ import { LoanDetailCard } from "@/ui/loanDetailCard/newLoanCard";
 import { WithdrawCard } from "@/ui/loanDetailCard/withdrawCard";
 import { Skeleton } from "@/ui/skeleton";
 import { Slash } from "lucide-react";
-import { cacheLife } from "next/cache";
 import { Suspense } from "react";
-
-cacheLife("seconds");
 
 export default function Dashboard() {
 	return (
