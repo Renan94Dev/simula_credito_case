@@ -1,7 +1,4 @@
-"use client";
-
 import { ArrowRight, CreditCard } from "lucide-react";
-import { use } from "react";
 import { Box } from "../box";
 
 type WithdrawCardProps = {
@@ -13,11 +10,11 @@ type WithdrawCardProps = {
 	promise: Promise<unknown>;
 };
 
-export const WithdrawCard = ({
+export const WithdrawCard = async ({
 	data: { available, name, value },
 	promise,
 }: WithdrawCardProps) => {
-	use(promise);
+	await promise;
 
 	return (
 		<Box
